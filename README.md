@@ -1,6 +1,6 @@
 # three-tier-eks-iac
 
-# Prerequisite 
+# Prerequisite
 
 **Install Kubectl**
 https://kubernetes.io/docs/tasks/tools/
@@ -44,8 +44,7 @@ kubectl logs -f \
 
 # Check load balancer logs
 ```
-kubectl logs -f -n kube-system \
-  -l app.kubernetes.io/name=aws-load-balancer-controller
+kubectl logs -f -n kube-system -l app.kubernetes.io/name=aws-load-balancer-controller
 ```
 
 <!-- aws eks update-kubeconfig \
@@ -65,7 +64,7 @@ aws ecr-public get-login-password --region us-east-1 | docker login --username A
 Buid Front End :
 
 ```
-docker buildx build --platform linux/amd64 -t workshop-frontend:v1 . 
+docker buildx build --platform linux/amd64 -t workshop-frontend:v1 .
 docker tag workshop-frontend:v1 public.ecr.aws/w8u5e4v2/workshop-frontend:v1
 docker push public.ecr.aws/w8u5e4v2/workshop-frontend:v1
 ```
@@ -74,7 +73,7 @@ docker push public.ecr.aws/w8u5e4v2/workshop-frontend:v1
 Buid Back End :
 
 ```
-docker buildx build --platform linux/amd64 -t workshop-backend:v1 . 
+docker buildx build --platform linux/amd64 -t workshop-backend:v1 .
 docker tag workshop-backend:v1 public.ecr.aws/w8u5e4v2/workshop-backend:v1
 docker push public.ecr.aws/w8u5e4v2/workshop-backend:v1
 ```
@@ -84,7 +83,7 @@ docker push public.ecr.aws/w8u5e4v2/workshop-backend:v1
 Buid Front End :
 
 ```
-docker build -t workshop-frontend:v1 . 
+docker build -t workshop-frontend:v1 .
 docker tag workshop-frontend:v1 public.ecr.aws/w8u5e4v2/workshop-frontend:v1
 docker push public.ecr.aws/w8u5e4v2/workshop-frontend:v1
 ```
@@ -93,7 +92,7 @@ docker push public.ecr.aws/w8u5e4v2/workshop-frontend:v1
 Buid Back End :
 
 ```
-docker build -t workshop-backend:v1 . 
+docker build -t workshop-backend:v1 .
 docker tag workshop-backend:v1 public.ecr.aws/w8u5e4v2/workshop-backend:v1
 docker push public.ecr.aws/w8u5e4v2/workshop-backend:v1
 ```
@@ -152,7 +151,7 @@ kubectl logs -f POD_ID -f
 ```
 
 
-# Grafana setup 
+# Grafana setup
 
 **Verify Services**
 ```
@@ -184,5 +183,3 @@ kubectl delete -f -f
 cd terraform
 terraform destroy --auto-approve
 ```
-
-
